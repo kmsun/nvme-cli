@@ -1193,6 +1193,12 @@ static int fw_download(int argc, char **argv)
 		fprintf(stderr, "No memory for f/w size:%d\n", fw_size);
 		return ENOMEM;
 	}
+
+	if (read(fw_fd, fw_buf, fw_size) != ((ssize_t)(fw_size))) {
+		fprintf(stderr, "failed to read data buffer from input file\n");
+		return EINVAL;
+	}
+
 	if (cfg.xfer % 4096)
 		cfg.xfer = 4096;
 
