@@ -1155,7 +1155,7 @@ static int fw_download(int argc, char **argv)
 
 	const struct config defaults = {
 		.fw     = "",
-		.xfer   = 0,
+		.xfer   = 4096,
 		.offset = 0,
 	};
 
